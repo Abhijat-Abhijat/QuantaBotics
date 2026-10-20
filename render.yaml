@@ -15,4 +15,4 @@ services:
       - key: GEMINI_MODEL
         value: gemini-flash-latest
       - key: GEMINI_THINKING_LEVEL
-        value: minimal
+        value: low
