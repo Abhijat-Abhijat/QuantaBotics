@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src http://localhost:8000; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Chat · QuantaBotics</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=JetBrains+Mono:wght@400;500&display=swap" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="chat-page">
+    <header class="topbar">
+      <a class="brand" href="./">🤖 QuantaBotics</a>
+      <nav aria-label="Main">
+        <a href="./#agents">Docs</a>
+        <a href="https://github.com/Abhijat-Abhijat" rel="noopener">GitHub</a>
+        <a href="mailto:abhijat789@gmail.com">Contact</a>
+      </nav>
+    </header>
+
+    <main class="workspace">
+      <section class="thread" id="thread" aria-live="polite" aria-label="Conversation">
+        <div class="msg bot">Hello! How can I assist you today?</div>
+      </section>
+
+      <aside class="result" aria-label="Latest output">
+        <h2 id="resultTitle">{ waiting... }</h2>
+        <div class="result-body" id="resultBody"></div>
+        <button type="button" class="copy-btn" id="copy" aria-label="Copy output" title="Copy output">📋</button>
+      </aside>
+    </main>
+
+    <footer class="composer">
+      <form id="composer">
+        <label class="visually-hidden" for="input">Message</label>
+        <textarea id="input" rows="2" maxlength="8000" placeholder="Type your message... (try code:, search:, sentiment:, visualize:)"></textarea>
+        <button type="submit" class="send-btn" id="send">Send</button>
+      </form>
+      <p class="hint">Enter to send, Shift+Enter for a new line.</p>
+    </footer>
+
+    <script type="module" src="js/chat.js"></script>
+  </body>
+</html>

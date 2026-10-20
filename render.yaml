@@ -1,0 +1,16 @@
+# Render blueprint for the API. Frontend is deployed separately to GitHub Pages.
+services:
+  - type: web
+    name: quantabotics-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-flash-latest

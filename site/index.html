@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'" />
+    <title>QuantaBotics</title>
+    <meta name="description" content="One chat box, nine specialist AI agents. QuantaBotics routes each message to the agent that fits, powered by Google Gemini." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=JetBrains+Mono:wght@400;500&display=swap" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="landing">
+    <header class="topbar">
+      <a class="brand" href="./">Quanta<span>Botics</span></a>
+      <nav aria-label="Main">
+        <a href="#agents">Agents</a>
+        <a href="#how">How it works</a>
+        <a href="https://github.com/Abhijat-Abhijat" rel="noopener">GitHub</a>
+        <a class="btn" href="chat.html">Open chat</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <h1><span>Type once.</span> <span>The right agent</span> <span>answers.</span></h1>
+          <p>QuantaBotics reads each message and hands it to a specialist: code, live search, sentiment, charts, math and more. A Python orchestrator passes messages between agents, powered by Google Gemini, and streams every step back to you.</p>
+
+          <div class="router">
+            <label for="routerInput">Try the router. Type a message and see where it goes.</label>
+            <input id="routerInput" type="text" value="code: binary search in Python" autocomplete="off" spellcheck="false" />
+            <p class="route-line" aria-live="polite">
+              <strong id="routeName"></strong>
+              <span id="routeDesc"></span>
+            </p>
+          </div>
+
+          <div class="actions">
+            <a class="btn" id="tryLink" href="chat.html">Send this to the chat</a>
+            <a class="btn ghost" href="#agents">See all agents</a>
+          </div>
+        </div>
+
+        <svg id="switchboard" class="switchboard" viewBox="0 0 440 480" role="img" aria-label="Diagram: your message is routed to one of nine agents"></svg>
+      </section>
+
+      <section class="section" id="agents">
+        <h2>Nine agents behind one box</h2>
+        <p>Start a message with a prefix to pick an agent. Plain arithmetic goes to the calculator, and everything else goes to the assistant. Click an example to try it.</p>
+        <table class="agents">
+          <thead>
+            <tr><th scope="col">Prefix</th><th scope="col">Agent</th><th scope="col">What it does</th></tr>
+          </thead>
+          <tbody id="agentRows"></tbody>
+        </table>
+      </section>
+
+      <section class="section" id="how">
+        <h2>How a message travels</h2>
+        <p>Every hop is a protocol message with a sender, receiver, task, content and step. Open any hop in the chat to see the full message.</p>
+        <ol class="steps">
+          <li>
+            <h3>The router addresses it</h3>
+            <p>It reads the prefix, picks an agent and wraps your text in the first message.</p>
+          </li>
+          <li>
+            <h3>Agents do the work</h3>
+            <p>Each agent handles its task with Gemini or plain Python, and can pass the result on. The summarizer hands off to the formatter.</p>
+          </li>
+          <li>
+            <h3>The orchestrator streams it back</h3>
+            <p>You see each hop and the answer as it is written, not after it is done.</p>
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>QuantaBotics, MIT licensed.</span>
+      <a href="https://github.com/Abhijat-Abhijat" rel="noopener">GitHub</a>
+      <a href="mailto:abhijat789@gmail.com">abhijat789@gmail.com</a>
+    </footer>
+
+    <script type="module" src="js/landing.js"></script>
+  </body>
+</html>

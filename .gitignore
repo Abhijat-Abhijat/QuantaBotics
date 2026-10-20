@@ -1,60 +1,13 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-*.pyc
-
-# Virtual environments
-env/
-venv/
-environment/
-.venv/
-
-# VSCode settings
-.vscode/
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Logs
-*.log
-
-# Model/data cache
-*.pt
-*.pth
-*.h5
-*.ckpt
-*.onnx
-
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
-
-# Compiled files
-*.so
-
-# Test outputs
-*.pytest_cache/
-htmlcov/
-coverage.xml
-*.cover
-
-# Node modules (if any frontend deps)
 node_modules/
-
-# Static build artifacts
-dist/
-build/
-*.egg-info/
-
-# Misc
-*.bak
-*.swp
-*.tmp
-
-# Ignore secrets
 .env
 .env.*
-
-# Ignore user
+.DS_Store
+Thumbs.db
+.vscode/
+*.log
+*.stackdump
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+!.env.example

@@ -1,0 +1,12 @@
+[
+  { "input": "  CODE: Reverse a String ", "agent": "code_writer", "text": "Reverse a String" },
+  { "input": "search: latest AI news", "agent": "web_searcher", "text": "latest AI news" },
+  { "input": "summarize: long text here", "agent": "summarizer", "text": "long text here" },
+  { "input": "sentiment: I love it", "agent": "sentiment_analyzer", "text": "I love it" },
+  { "input": "events: launch on May 3", "agent": "event_extractor", "text": "launch on May 3" },
+  { "input": "keywords: some paragraph", "agent": "keyword_extractor", "text": "some paragraph" },
+  { "input": "visualize: {\"A\": 1}", "agent": "data_visualizer", "text": "{\"A\": 1}" },
+  { "input": "5 * (2 + 3)", "agent": "calculator", "text": "5 * (2 + 3)" },
+  { "input": "Tell me about AI-driven robots (briefly)", "agent": "assistant", "text": "Tell me about AI-driven robots (briefly)" },
+  { "input": "()", "agent": "assistant", "text": "()" }
+]
