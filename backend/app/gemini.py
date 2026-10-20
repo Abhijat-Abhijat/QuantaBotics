@@ -26,10 +26,15 @@ def _get_client() -> genai.Client:
     return _client
 
 
+def _config(system: str, **kwargs: Any) -> types.GenerateContentConfig:
+    thinking = types.ThinkingConfig(thinking_level=config.GEMINI_THINKING_LEVEL) if config.GEMINI_THINKING_LEVEL else None
+    return types.GenerateContentConfig(system_instruction=system, thinking_config=thinking, **kwargs)
+
+
 async def stream_text(prompt: str, *, system: str, search: bool = False, sources: list[dict] | None = None) -> AsyncIterator[str]:
     """Yield text deltas. With search, grounding sources are appended to `sources`."""
     tools = [types.Tool(google_search=types.GoogleSearch())] if search else None
-    cfg = types.GenerateContentConfig(system_instruction=system, tools=tools)
+    cfg = _config(system, tools=tools)
     got_text = False
     try:
         stream = await _get_client().aio.models.generate_content_stream(model=config.GEMINI_MODEL, contents=prompt, config=cfg)
@@ -50,7 +55,7 @@ async def stream_text(prompt: str, *, system: str, search: bool = False, sources
 
 async def generate_json(prompt: str, *, system: str, schema: Any) -> Any:
     """Return JSON-decoded output constrained to `schema` (a pydantic model or type such as list[str])."""
-    cfg = types.GenerateContentConfig(system_instruction=system, response_mime_type="application/json", response_schema=schema)
+    cfg = _config(system, response_mime_type="application/json", response_schema=schema)
     try:
         response = await _get_client().aio.models.generate_content(model=config.GEMINI_MODEL, contents=prompt, config=cfg)
     except errors.APIError as exc:
